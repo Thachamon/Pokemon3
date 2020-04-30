@@ -1,16 +1,16 @@
 abstract class Pokemon{
-	public final double maxHealth;
+	public final double maxHp;
 	protected double health;
 	protected double weight;
 	protected String name;
-	protected PokemonSkill attackSkill;
-	protected PokemonSkill untimatedSkill;
-	protected String imgPath;
+	protected PokeSkill attackSkill;
+	protected PokeSkill untimatedSkill;
+	//protected String imgPath;
 
-	public Pokemon(String name, double maxHealth){
+	public Pokemon(String name, double maxHp){
 		this.name = name;
-		this.health = maxHealth;
-		this.maxHealth = maxHealth;
+		this.health = maxHp;
+		this.maxHp = maxHp;
 		this.weight = (Math.random()*10)+1;
 	}
 	public double getHealth(){
@@ -25,10 +25,10 @@ abstract class Pokemon{
 	public String printAttackSkill() {
 		return "AttackSkill : "+attackSkill.getName()+" , Damage : "+attackSkill.getDamage();
 	}
-	public void eat(Berry berry){
-		this.health += berry.getRestoreValue();
-		if(this.health > this.maxHealth)
-			this.health = this.maxHealth;
+	public void eat(PokeFood pokeFood){
+		this.health += pokeFood.getRestoreValue();
+		if(this.health > this.maxHp)
+			this.health = this.maxHp;
 		this.weight++;
 	}
 
@@ -37,7 +37,7 @@ abstract class Pokemon{
 	}
 
 
-	public void injure(PokemonSkill skill){
+	public void injure(PokeSkill skill){
 		this.reducedHealth(skill.getDamage());
 	}
 
@@ -46,9 +46,9 @@ abstract class Pokemon{
 		if(this.health < 0)
 			this.health = 0;
 	}
-	public String getImgPath() {
-		return this.imgPath;
-	}
+	//public String getImgPath() {
+	//	return this.imgPath;
+	//}
 
 	abstract public void move();
 	

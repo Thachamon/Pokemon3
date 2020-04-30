@@ -5,7 +5,7 @@ public class Squirtle extends Pokemon implements Swimmable {
 	public Squirtle() {
 		super("Squirtle",(Math.random()*1000) % (maxGroupHealth+1));
 		this.attackSkill = PokeSkill.getPokemonSkill("Water Gun");
-		this.imgPath="images/Squirtle.gif";
+		//this.imgPath="images/Squirtle.gif";
 		
 	}
 
