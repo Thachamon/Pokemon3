@@ -5,7 +5,7 @@ abstract class Pokemon{
 	protected String name;
 	protected PokeSkill attackSkill;
 	protected PokeSkill untimatedSkill;
-	//protected String imgPath;
+	protected String imgPath;
 
 	public Pokemon(String name, double maxHp){
 		this.name = name;
@@ -46,9 +46,9 @@ abstract class Pokemon{
 		if(this.health < 0)
 			this.health = 0;
 	}
-	//public String getImgPath() {
-	//	return this.imgPath;
-	//}
+	public String getImgPath() {
+		return this.imgPath;
+	}
 
 	abstract public void move();
 	
