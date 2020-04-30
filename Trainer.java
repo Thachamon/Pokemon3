@@ -1,4 +1,6 @@
+
 public class Trainer {
+
 	private String name;
 	public Trainer(String name) {
 		this.name =name;
@@ -6,6 +8,7 @@ public class Trainer {
 	
 	public String getName() {
 		return this.name;
+
 	}
 
 }
