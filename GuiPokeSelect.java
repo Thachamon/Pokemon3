@@ -81,7 +81,7 @@ public class GuiPokeSelect extends JFrame{
 				}
 	
 				if(n==0) {
-					GuiPokeStatus frame = new GuiPokeStatus("Main Menu", guiParser);
+					GuiPokeStatus frame = new GuiPokeStatus("Pokemon Status", guiParser);
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					frame.setSize(800,600);
 					frame.setVisible(true);

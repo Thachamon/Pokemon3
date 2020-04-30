@@ -21,12 +21,6 @@ public class PokeSkill{
 			case "thunder shock":
 				skill = new PokeSkill("Thunder Shock",40);
 				break;
-			case "thunderbolt":
-				skill = new PokeSkill("Thunderbolt",90);
-				break;
-			case "tail whip":
-				skill = new PokeSkill("Tail Whip",10);
-				break;
 			case "water pulse":
 				skill = new PokeSkill("Water Pulse",100);
 				break;

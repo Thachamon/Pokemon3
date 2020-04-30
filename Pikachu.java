@@ -1,9 +1,8 @@
 public class Pikachu extends Pokemon implements Runnable{
 	private static final int maxGroupHealth = 200;
 	public Pikachu(){
-		super("Pikachu",
-		      (Math.random()*1000) % (maxGroupHealth+1));
-
+		super("Pikachu",(Math.random()*1000) % (maxGroupHealth+1));
+		
 		this.attackSkill = PokeSkill.getPokemonSkill("Thunder Shock");
 
 	}
