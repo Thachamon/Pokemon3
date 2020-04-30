@@ -58,7 +58,7 @@ public class GUIParser {
 	}
 
 	public void dicoverRival() {	
-		double randomType=Math.random()*10;
+		double randomType=Math.random()*2;
 			if(randomType < 5) {
 				rivalPokemon.add(new Pikachu());
 			}	

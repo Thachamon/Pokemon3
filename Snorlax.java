@@ -5,7 +5,7 @@ public class Snorlax extends Pokemon implements Runnable{
 			      (Math.random()*1000) % (maxGroupHealth+1));
 
 			this.attackSkill = PokeSkill.getPokemonSkill("Solar Beam");
-			//this.imgPath = "/images/snorlax.gif";
+			this.imgPath = "/images/snorlax.gif";
 	}
 	
 

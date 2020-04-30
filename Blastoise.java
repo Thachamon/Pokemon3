@@ -5,7 +5,7 @@ public class Blastoise extends Pokemon implements Swimmable {
 	public Blastoise() {
 		super("Blastoise",(Math.random()*1000) % (maxGroupHealth+1));
 		this.attackSkill = PokeSkill.getPokemonSkill("Water Gun");
-		//this.imgPath="images/Squirtle.gif";
+		this.imgPath="images/blastoise.gif";
 		
 	}
 

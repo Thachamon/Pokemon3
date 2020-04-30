@@ -3,16 +3,17 @@ import javax.swing.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.ImageIcon;
+import java.awt.event.*;
 
 public class GuiPokeSelect extends JFrame{
 	private JPanel p;
 	private JLabel lblHeader;
-	private JLabel lblB;
-	private JLabel lblH;
 	private JLabel lblS;
-	private JButton btnB;
-	private JButton btnH;
+	private JLabel lblD;
+	private JLabel lblB;
 	private JButton btnS;
+	private JButton btnD;
+	private JButton btnB;
     private GUIParser guiParser;
     
 	public GuiPokeSelect (String title,String pokemonTrainer) {
@@ -21,35 +22,64 @@ public class GuiPokeSelect extends JFrame{
         
 		p= new JPanel();
 		p.setLayout(new GridBagLayout());
-		btnB = new JButton();
-		btnH= new JButton();
-		btnS= new JButton();
+		btnS = new JButton();
+		btnD= new JButton();
+		btnB= new JButton();
 		lblHeader = new JLabel("Select First Pokemon");
-		lblB = new JLabel("Snorlax");
-		lblH = new JLabel("Dragonite");
-		lblS = new JLabel("Blastoise");
-		 btnB.setIcon(new ImageIcon("images/snorlax.gif"));
-		btnB.setPreferredSize(new Dimension(250,300));
-		btnH.setIcon(new ImageIcon("images/dragonite.gif"));
-		btnH.setPreferredSize(new Dimension(250,300));
-		btnS.setIcon(new ImageIcon("images/blastoise.gif"));
+		lblS = new JLabel("Snorlax");
+		lblD = new JLabel("Dragonite");
+		lblB = new JLabel("Blastoise");
+		 btnS.setIcon(new ImageIcon("images/snorlax.gif"));
 		btnS.setPreferredSize(new Dimension(250,300));
+		btnD.setIcon(new ImageIcon("images/dragonite.gif"));
+		btnD.setPreferredSize(new Dimension(250,300));
+		btnB.setIcon(new ImageIcon("images/blastoise.gif"));
+		btnB.setPreferredSize(new Dimension(250,300));
 		//validate();
 
 		
 		GuiPanel gc = new GuiPanel();
 		gc.addItem(p,lblHeader,1,0,1,1,GridBagConstraints.CENTER);
-		gc.addItem(p,btnB,0,1,1,1,GridBagConstraints.CENTER);
-		gc.addItem(p,btnH,1,1,1,1,GridBagConstraints.CENTER);
-		gc.addItem(p,btnS,2,1,1,1,GridBagConstraints.CENTER);
-		gc.addItem(p,lblB,0,2,1,1,GridBagConstraints.CENTER);
-		gc.addItem(p,lblH,1,2,1,1,GridBagConstraints.CENTER);
-		gc.addItem(p,lblS,2,2,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,btnS,0,1,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,btnD,1,1,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,btnB,2,1,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,lblS,0,2,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,lblD,1,2,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,lblB,2,2,1,1,GridBagConstraints.CENTER);
 		
-		
+		btnS.addActionListener(new ButtonListener());
+		btnD.addActionListener(new ButtonListener());
+        btnB.addActionListener(new ButtonListener());
+
         p.setBackground(Color.black);
 		add(p);
 		
-	}
+    }
+    
+	private class ButtonListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+				int n=1; 
+				if(e.getSource()==btnS){
+					n=guiParser.selectPokemon("Snorlax");
+				}
+				else if(e.getSource()==btnD){
+					n=guiParser.selectPokemon("Dragonite");
+				}
+				else if(e.getSource()==btnB){
+					n=guiParser.selectPokemon("Blastoise");
+				}
 	
+				if(n==0) {
+					GuiPokeStatus frame = new GuiPokeStatus("Main Menu", guiParser);
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setSize(800,600);
+					frame.setVisible(true);
+					dispose();
+				}
+				
+				
+			
+		}
+	}
 }

@@ -5,7 +5,7 @@ public class Dragonite extends Pokemon implements Runnable{
 			      (Math.random()*1000) % (maxGroupHealth+1));
 
 			this.attackSkill = PokeSkill.getPokemonSkill("Fire Ball");
-			//this.imgPath="images/snorlax.gif";
+			this.imgPath="images/dragonite.gif";
 	}	
 	public void move(){
 		this.run();
