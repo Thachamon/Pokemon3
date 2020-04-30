@@ -51,6 +51,8 @@ abstract class Pokemon{
 	}
 
 	abstract public void move();
-	
+	// public void name(GuiPokeStatus pokeStatus){
+	// 	this.name += pokeStatus.getName();
+	// }
 
 }

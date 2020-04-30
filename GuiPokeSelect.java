@@ -15,6 +15,8 @@ public class GuiPokeSelect extends JFrame{
 	private JButton btnD;
 	private JButton btnB;
     private GUIParser guiParser;
+    Font mFont = new Font("Comic Sans MS", Font.PLAIN, 20);
+    Font tFont = new Font("Comic Sans MS", Font.PLAIN, 16);
     
 	public GuiPokeSelect (String title,String pokemonTrainer) {
 		super(title);
@@ -51,6 +53,14 @@ public class GuiPokeSelect extends JFrame{
 		btnD.addActionListener(new ButtonListener());
         btnB.addActionListener(new ButtonListener());
 
+        lblB.setFont(tFont);
+        lblB.setForeground(Color.YELLOW);
+        lblD.setFont(tFont);
+        lblD.setForeground(Color.YELLOW);
+        lblS.setFont(tFont);
+        lblS.setForeground(Color.YELLOW);
+        lblHeader.setFont(mFont);
+        lblHeader.setForeground(Color.PINK);
         p.setBackground(Color.black);
 		add(p);
 		

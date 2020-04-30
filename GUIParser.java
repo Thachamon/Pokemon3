@@ -6,7 +6,9 @@ public class GUIParser {
 	private ArrayList<Pokemon> myPokemons;
 	private ArrayList<Pokemon> rivalPokemon;
 	private PokeFood pokeFood;
-	
+	private GuiPokeStatus pokeStatus;
+	//private PokeRandom pokeRandom;
+	String Changename = "";
 	public GUIParser(String pokemonTrainer) {
 		this.pokemonTrainer = new Trainer(pokemonTrainer);
 		myPokemons = new ArrayList();
@@ -30,13 +32,15 @@ public class GUIParser {
 			 }
 		 }
 		 return n;
-			//System.out.print(n);
 		}
+
 	public  String  printPokemons(){
 		String  detail;
-		detail="===========  "+pokemonTrainer.getName()+" s' Pokemon ===========\n";
+		detail="\n----------  "+pokemonTrainer.getName()+" s' Pokemon  ----------\n\n\n";
+		if (Changename.length() > 0 ) {detail+="Please call him : " + Changename +"\n";}
+		
 		for(Pokemon pokemon: myPokemons){
-			detail+="Pokemon "+pokemon.getName()+" health: "+Math.round(pokemon.getHealth())+"/"+Math.round(pokemon.maxHp)+"\nweight: "+Math.round(pokemon.getWeight())+" kg\n"+pokemon.printAttackSkill();
+			detail+="Pokemon : "+pokemon.getName()+"\nHealth : "+Math.round(pokemon.getHealth())+"/"+Math.round(pokemon.maxHp)+"\nWeight : "+Math.round(pokemon.getWeight())+" kg\n"+pokemon.printAttackSkill();
 		}
 		return detail;
 	}
@@ -53,18 +57,25 @@ public class GUIParser {
 			}
 		}
 	}
+
+	 public void changeNamePokemon(String ccName){
+		 Changename = ccName;
+	 }
+
 	public String getImgPath() {
 		return myPokemons.get(0).getImgPath();
 	}
 
 	public void dicoverRival() {	
-		double randomType=Math.random()*2;
-			if(randomType < 5) {
+		int randomType = (int)(Math.random()*10);
+			if(randomType < 3) {
 				rivalPokemon.add(new Pikachu());
 			}	
 			else {
 				rivalPokemon.add(new Koduck());
 			} 
+
+					
 	}
 	public void pokemonBattle() {
 		rivalPokemon.get(0).attack(myPokemons.get(0));

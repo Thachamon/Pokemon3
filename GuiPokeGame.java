@@ -9,7 +9,9 @@ public class GuiPokeGame extends JFrame{
 	private JLabel lblName;
 	private JLabel lblWelcome;
     private JTextField tfName;
-    Font titleFont = new Font("Tahoma", Font.PLAIN, 70);
+	Font titleFont = new Font("Comic Sans MS", Font.PLAIN, 70);
+	Font mFont = new Font("Comic Sans MS", Font.PLAIN, 28);
+	Font btnFont = new Font("Comic Sans MS",Font.PLAIN,20); 
 
 
 	public GuiPokeGame(String title) {
@@ -17,26 +19,37 @@ public class GuiPokeGame extends JFrame{
 		p= new JPanel();
 		p.setLayout(new GridBagLayout());
 		lblWelcome = new JLabel("POKEMON GAME");
-		lblName = new JLabel("Enter your name :");
+		lblName = new JLabel("Please enter your name : ");
 		tfName	= new JTextField(18);
-		btnStart = new JButton("PRESS START");
+		btnStart = new JButton("Let's Go.");
 
 		
 		GuiPanel gc = new GuiPanel();
 
-		//gc.addItem(p,lblWelcome,0,0,3,1,GridBagConstraints.NORTH);
-		gc.addItem(p,lblName,0,1,1,1,GridBagConstraints.WEST);
-		gc.addItem(p,tfName,1,1,1,1,GridBagConstraints.CENTER);
-		gc.addItem(p,btnStart,1,2,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,lblWelcome,0,1,1,1,GridBagConstraints.CENTER);
+
+		gc.addItem(p,lblName,0,2,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,tfName,0,3,1,1,GridBagConstraints.CENTER);
+		gc.addItem(p,btnStart,0,4,1,1,GridBagConstraints.CENTER);
+		
+		
+		p.setBackground(Color.black);
+		lblWelcome.setFont(titleFont);
+		lblWelcome.setForeground(Color.PINK);
+		lblName.setFont(mFont);
+		lblName.setForeground(Color.MAGENTA);
+		tfName.setFont(btnFont);
+		tfName.setForeground(Color.blue);
+		btnStart.setFont(btnFont);
+	 
+
+		 
+	  
+
 		
 		btnStart.addActionListener(new ButtonListener());
-        
-        lblWelcome.setBounds(130,50,600,60);
-        lblWelcome.setFont(titleFont);
-        add(lblWelcome);
 
-          
-        p.setBackground(Color.black);
+	
         add(p); 
 		
 	}
