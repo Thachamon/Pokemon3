@@ -36,7 +36,7 @@ public class GUIParser {
 
 	public  String  printPokemons(){
 		String  detail;
-		detail="\n----------  "+pokemonTrainer.getName()+" s' Pokemon  ----------\n\n\n";
+		detail="\n----------  Pokemon Trainer : "+pokemonTrainer.getName()+"  ----------\n\n\n";
 		if (Changename.length() > 0 ) {detail+="Please call him : " + Changename +"\n";}
 		
 		for(Pokemon pokemon: myPokemons){
